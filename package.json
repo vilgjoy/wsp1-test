@@ -1,4 +1,24 @@
 {
+  "name": "wsp1-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vilgjoy/wsp1-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/vilgjoy/wsp1-test/issues"
+  },
+  "homepage": "https://github.com/vilgjoy/wsp1-test#readme",
   "dependencies": {
     "express": "^5.1.0"
   }
