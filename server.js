@@ -21,7 +21,7 @@ app.get("/about", (req, res) => {
     res.render("about.njk", {
         title: "about sidan",
         github: "https://github.com/vilgjoy/wsp1-test",
-        message: "detta är ett skolarbete",
+        message: "arbetet hitter man på github med kuben",
         image: "/images/pexels-simon73-1323550.jpg"
     })
 })
@@ -41,7 +41,6 @@ app.get("/index", (req, res) => {
 
 app.get("/greeting", (req, res) => {
     console.log(req.query)
-    // res.send(`tjena ${req.query.name}, ${req.query.message}`)
     res.render("greeting.njk", {
         title: "hälsningsida",
         name: req.query.name,
@@ -51,7 +50,7 @@ app.get("/greeting", (req, res) => {
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
-    res.status(500).send("Something broke!");
+    res.status(500).send("Någonting gick fel");
 });
 
 app.listen(3000, () => {
