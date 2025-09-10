@@ -16,10 +16,16 @@ app.get("/", (req, res, next) => {
     res.send("Hello world!")
 })
 
-// Skriv en ny route, till about sidan
-// skapa about sidan, som en njk templat
-// på about sidan, ska det finnas en länk till er github,
-// en bild och en text om att detta är ett skolarbete
+
+app.get("/about", (req, res) => {
+    res.render("about.njk", {
+        title: "about sidan",
+        github: "https://github.com/vilgjoy/wsp1-test",
+        message: "detta är ett skolarbete",
+        image: "/images/pexels-simon73-1323550.jpg"
+    })
+})
+
 
 app.get("/index", (req, res) => {
     res.render("index.njk", {
@@ -35,8 +41,18 @@ app.get("/index", (req, res) => {
 
 app.get("/greeting", (req, res) => {
     console.log(req.query)
-    res.send(`tjena ${req.query.name}, ${req.query.message}`)
+    // res.send(`tjena ${req.query.name}, ${req.query.message}`)
+    res.render("greeting.njk", {
+        title: "hälsningsida",
+        name: req.query.name,
+        message: req.query.message
+    })
 })
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send("Something broke!");
+});
 
 app.listen(3000, () => {
     console.log("Server is running on http://localhost:3000")
